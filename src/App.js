@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+
+const Body = styled.div`
+  background-color: yellow;
+  height: 100% ;
+  display: flex;
+`;
+const SearchBar = styled.input`
+  margin: 0 auto;
+  width: 50%;
+`;
+function oAuth() {
+  axios("https://www.googleapis.com/auth/keep")
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          this is my first project "the Memo"
-        </a>
-      </header>
-    </div>
+    <Body>
+      <SearchBar />
+      <button onClick={oAuth}>login</button>
+      {/* <Routes>
+        <Route path='/' element={<Main />}></Route>
+        <Route path='/mypage' element={<MyPage />}></Route>
+      </Routes> */}
+    </Body>
   );
 }
 
